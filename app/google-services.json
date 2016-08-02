@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "660094194656",
+    "firebase_url": "https://slow-down-ded05.firebaseio.com",
+    "project_id": "slow-down-ded05",
+    "storage_bucket": "slow-down-ded05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660094194656:android:f24a6d79211eca59",
+        "android_client_info": {
+          "package_name": "com.ghostlabs.slowdown"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660094194656-dgl8lbftnee962tl9rrnk3luus9o718v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghostlabs.slowdown",
+            "certificate_hash": "72DD9B7679BE785DB6A18F08F1B8D2735C609A7B"
+          }
+        },
+        {
+          "client_id": "660094194656-etd453gv22f9tp9aqfsdh086tumrg39b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk7DQkdg4y2Rf1CAmYTA56DIHtYeJ5QuY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660094194656-etd453gv22f9tp9aqfsdh086tumrg39b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
