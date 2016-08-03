@@ -32,5 +32,9 @@
                 android:title="Send" />
         </menu>
     </item>
+    <item
+        android:id="@+id/nav_sign_out"
+        android:icon="@drawable/ic_log_out"
+        android:title="Sign Out" />
 
 </menu>
