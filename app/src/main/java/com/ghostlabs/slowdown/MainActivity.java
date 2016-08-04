@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,10 @@ import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
         TextView headerName , headerEmail;
+    protected DrawerLayout drawer;
+    protected FrameLayout frameLayout;
     de.hdodenhof.circleimageview.CircleImageView headerImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +38,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        SharedPreferences runCheck = getSharedPreferences("hasRunBefore", 0); //load the preferences
-        Boolean hasRun = runCheck.getBoolean("hasRun", false); //see if it's run before, default no
-        if (!hasRun) {
-            SharedPreferences settings = getSharedPreferences("hasRunBefore", 0);
-            SharedPreferences.Editor edit = settings.edit();
-            edit.putBoolean("hasRun", true); //set to has run
-            edit.apply();
+        SharedPreferences runCheck = getSharedPreferences("saved", 0); //load the preferences
+        Boolean saved = runCheck.getBoolean("saved", false); //see if it's run before, default no
+        if (!saved) {
+
             Intent i = new Intent(this,UserDetails.class);
             startActivity(i);
             //apply
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        frameLayout = (FrameLayout)findViewById(R.id.frameLayout);
+      drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -124,13 +125,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+       if(id== R.id.nav_profile_details){
 
-        } else if (id == R.id.nav_manage) {
+            Intent i =new Intent(this,UserDetails.class);
+            startActivity(i);
+        }
+       else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

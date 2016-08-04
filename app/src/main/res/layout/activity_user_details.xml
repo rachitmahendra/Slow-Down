@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
   <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please verify your details to calculate your Blood Alcohol Level (BAC)"
         android:textSize="20sp"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:layout_marginTop="?android:attr/actionBarSize"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,21 +32,22 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:id="@+id/radio_group">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/male"
+            android:id="@+id/maleRadio"
             android:text="Male"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/female"
+            android:id="@+id/femaleRadio"
             android:text="Female"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/other"
+            android:id="@+id/otherRadio"
             android:text="Other"/>
     </RadioGroup>
     <Button
