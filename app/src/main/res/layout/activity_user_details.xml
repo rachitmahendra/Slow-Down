@@ -9,7 +9,7 @@
         android:text="Please verify your details to calculate your Blood Alcohol Level (BAC)"
         android:textSize="20sp"
         android:layout_margin="20dp"
-        android:layout_marginTop="?android:attr/actionBarSize"/>
+         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,6 +57,6 @@
         android:id="@+id/button_save"
         android:layout_gravity="right"
         android:layout_margin="20dp"
-        android:onClick="Save"/>
+         />
 
 </LinearLayout>

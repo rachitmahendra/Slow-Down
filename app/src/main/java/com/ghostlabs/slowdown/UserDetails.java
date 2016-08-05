@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,6 +20,7 @@ public class UserDetails extends MainActivity {
     EditText age, weight;
     RadioGroup radioGroup;
     RadioButton radioButton, radioMale, radioFemale, radioOther;
+    Button save;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,33 @@ public class UserDetails extends MainActivity {
         radioMale= (RadioButton)findViewById(R.id.maleRadio);
         radioFemale = (RadioButton)findViewById(R.id.femaleRadio);
         radioOther = (RadioButton)findViewById(R.id.otherRadio);
+        save = (Button)findViewById(R.id.button_save);
 
-        SharedPreferences runCheck = getSharedPreferences("saved", 0); //load the preferences
-        Boolean saved = runCheck.getBoolean("saved", false);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                // find the radiobutton by returned id
+                radioButton = (RadioButton) findViewById(selectedId);
+
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putInt("age",Integer.parseInt(age.getText().toString()));
+                editor.putInt("weight",Integer.parseInt(weight.getText().toString()));
+                editor.putString("sex",radioButton.getText().toString());
+                editor.putBoolean("saved",true);
+                editor.apply();
+
+                makeToast("Data Saved");
+                Intent i = new Intent(getApplicationContext(),StartDrinking.class);
+                startActivity(i);
+            }
+        });
+
+        SharedPreferences preferences = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE); //load the preferences
+        Boolean saved = preferences.getBoolean("saved", false);
          if(saved) {
-            SharedPreferences preferences = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+
             int storedWeight = preferences.getInt("age", 0);
             int storedAge = preferences.getInt("weight", 0);
             String storedSex = preferences.getString("sex", null);
@@ -71,7 +95,7 @@ public void Save(View v){
     edit.putBoolean("saved", true); //set to has run
     edit.apply();
     makeToast("Data Saved");
-    Intent i = new Intent(this,MainActivity.class);
+    Intent i = new Intent(this,StartDrinking.class);
     startActivity(i);
 }
     public void makeToast(String message){

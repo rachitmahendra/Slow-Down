@@ -32,7 +32,7 @@ public class Login  extends AppCompatActivity {
         }
     }
     private void fireIntent(){
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this,StartDrinking.class);
         startActivity(intent);
         finish();
 

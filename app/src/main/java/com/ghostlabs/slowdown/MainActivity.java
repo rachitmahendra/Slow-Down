@@ -1,10 +1,10 @@
 package com.ghostlabs.slowdown;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,21 +32,14 @@ public class MainActivity extends AppCompatActivity
     protected DrawerLayout drawer;
     protected FrameLayout frameLayout;
     de.hdodenhof.circleimageview.CircleImageView headerImage;
+    CoordinatorLayout coordinatorLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        SharedPreferences runCheck = getSharedPreferences("saved", 0); //load the preferences
-        Boolean saved = runCheck.getBoolean("saved", false); //see if it's run before, default no
-        if (!saved) {
 
-            Intent i = new Intent(this,UserDetails.class);
-            startActivity(i);
-            //apply
-            //code for if this is the first time the app has run
-        }
 
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -57,6 +50,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
+        coordinatorLayout = (CoordinatorLayout)findViewById(R.id.coordinator_layout);
         frameLayout = (FrameLayout)findViewById(R.id.frameLayout);
       drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

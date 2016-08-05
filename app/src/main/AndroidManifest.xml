@@ -10,6 +10,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".StartDrinking"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AlarmSet" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".UserDetails"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Login"

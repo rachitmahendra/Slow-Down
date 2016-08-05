@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How often would you like to check your BAC ?"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+
+
+    <hu.bugadani.circlepickerlib.CirclePickerView
+        android:layout_gravity="center"
+        android:id="@+id/timer_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dividerColor="#303030"
+        app:label="Minutes"
+        app:labelColor="@android:color/secondary_text_dark"
+        app:labelSize="25sp"
+        app:max="60"
+        app:min="0"
+        app:showDivider="true"
+        app:step="15"
+        app:wheelRadius="125dp"
+        app:interactive="true"
+        app:pointerRadius="10dp"
+        app:wheelStrokeWidth="10dp"
+        app:showPointer="true"
+        app:textSize="30sp"
+
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_gravity="right"
+        android:id="@+id/button_next"/>
+
+</LinearLayout>
+</ScrollView>
