@@ -1,10 +1,15 @@
 package com.ghostlabs.slowdown;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.Calendar;
 
 import hu.bugadani.circlepickerlib.CirclePickerView;
 
@@ -26,9 +31,22 @@ public class AlarmSet extends MainActivity {
             @Override
             public void onClick(View view) {
                 int time = (int) circlePickerView.getValue();
-                makeToast(String.valueOf(time));
+                makeToast("You have selected " + String.valueOf(time));
+                makeAlarm(time);
             }
         });
 
     }
+    public void makeAlarm(int time){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent notificationIntent = new Intent();
+        notificationIntent.setAction("com.custom.intent");
+
+
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+         Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, time);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),10000, broadcast);
+        }
 }
