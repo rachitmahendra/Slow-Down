@@ -30,5 +30,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.bugadani:CirclePicker:master-SNAPSHOT'
+    compile 'com.android.support:design:23.0.3'
+    compile 'com.android.support:recyclerview-v7:23.0.3'
 }
 apply plugin: 'com.google.gms.google-services'

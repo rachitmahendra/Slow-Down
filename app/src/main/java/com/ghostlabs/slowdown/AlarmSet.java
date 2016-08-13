@@ -47,6 +47,6 @@ public class AlarmSet extends MainActivity {
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
          Calendar cal = Calendar.getInstance();
         cal.add(Calendar.SECOND, time);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),10000, broadcast);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),time*1000*60, broadcast);
         }
 }
