@@ -29,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrinksActivity" />
+        <activity android:name=".DrinksActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <receiver android:name=".AlarmReceiver">
             <intent-filter>

@@ -25,9 +25,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
-        Notification notification = builder.setContentTitle("Demo App Notification")
-                .setContentText("New Notification From Demo App..")
-                .setTicker("New Message Alert!")
+        Notification notification = builder.setContentTitle("Slow Down")
+                .setContentText("Hey ! Did you have a drink ?")
+                .setTicker("New Reminder !")
                 .setSmallIcon(R.mipmap.ic_launcher)
                  .setContentIntent(pendingIntent).build();
 
