@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -33,8 +34,18 @@ public class AlarmSet extends MainActivity {
             @Override
             public void onClick(View view) {
                 int time = (int) circlePickerView.getValue();
-                makeToast("You have selected " + String.valueOf(time));
-                makeAlarm(time);
+                if(time>0){
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, "The reminder is set for "+time+" minutes !", Snackbar.LENGTH_LONG);
+
+                snackbar.show();
+                makeAlarm(time);}
+                else {
+                    Snackbar snackbar = Snackbar
+                            .make(coordinatorLayout, "Please select a valid time", Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
             }
         });
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +65,11 @@ public class AlarmSet extends MainActivity {
 
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
          Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, time);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),60000, broadcast);
+        cal.add(Calendar.MINUTE, time);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),time*1000*60, broadcast);
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
         editor.putLong("alarmSetTime",System.currentTimeMillis());
+        editor.apply();
         }
     public void cancelAlarm(){
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -69,5 +81,9 @@ public class AlarmSet extends MainActivity {
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         alarmManager.cancel(broadcast);
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "Reminder Cancelled successfully !", Snackbar.LENGTH_LONG);
+
+        snackbar.show();
     }
 }

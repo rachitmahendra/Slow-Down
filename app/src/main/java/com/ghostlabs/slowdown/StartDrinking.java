@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,10 +31,7 @@ public class StartDrinking extends MainActivity {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.activity_start_drinking, null, false);
         frameLayout.addView(contentView, 0);
-            Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, "Press the drink to start drinking :)", Snackbar.LENGTH_INDEFINITE);
 
-            snackbar.show();
         drinkImage = (ImageView)findViewById(R.id.drink_image);
         if(drinkImage!=null)
         drinkImage.setOnClickListener(new View.OnClickListener() {

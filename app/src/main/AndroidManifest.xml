@@ -15,6 +15,8 @@
         <activity android:name=".AlarmSet" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".UserDetails"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CalculateBAC"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar"/>
 

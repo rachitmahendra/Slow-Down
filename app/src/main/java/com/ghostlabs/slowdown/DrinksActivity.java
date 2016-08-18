@@ -60,6 +60,9 @@ public class DrinksActivity extends MainActivity {
         drink = new Drink("Wine", 0.12f);
         drinksList.add(drink);
 
+        drink = new Drink("Spirit",0.40f);
+        drinksList.add(drink);
+
 
 
         mAdapter.notifyDataSetChanged();

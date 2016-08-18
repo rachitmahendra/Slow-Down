@@ -28,7 +28,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         Notification notification = builder.setContentTitle("Slow Down")
                 .setContentText("Hey ! Did you have a drink ?")
                 .setTicker("New Reminder !")
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setAutoCancel(true)
                  .setContentIntent(pendingIntent).build();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
